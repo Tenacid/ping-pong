@@ -15,45 +15,6 @@ public class ControlManager : MonoBehaviour
         return instance;
     }
 
-/*#if UNITY_EDITOR
-    public void waitForStart() {
-        if (Input.GetMouseButton(0)) {
-            Game.getInstance().startGame();
-        }
-    }
-#else
-    public void waitForStart() {
-        if (Input.touchCount > 0) {
-            Touch touch = Input.GetTouch(0);
-
-            if (touch.phase == TouchPhase.Began) {
-                Game.getInstance().startGame();
-            }
-        }
-    }
-#endif
-*/
-
-        /*
-#if UNITY_EDITOR
-    public void waitForUnpause() {
-        if (Input.GetMouseButton(0)) {
-            Game.getInstance().unpause();
-        }
-    }
-#else
-    public void waitForUnpause() {
-        if (Input.touchCount > 0) {
-
-    Touch touch = Input.GetTouch(0);
-
-            if (touch.phase == TouchPhase.Began) {
-                Game.getInstance().unpause();
-            }
-        }
-    }
-#endif
-*/
 
 #if UNITY_EDITOR
     public void checkInput() {
@@ -76,25 +37,8 @@ public class ControlManager : MonoBehaviour
 
     void Update()
     {
-        /*if (Game.getInstance().getGameState() == GameState.WAIT_FOR_START) {
-            waitForStart();
-        } else if (Game.getInstance().getGameState() == GameState.PAUSE) {
-            waitForUnpause();
-        } else*/ if (Game.getInstance().getGameState() == GameState.PLAY) {
+        if (Game.getInstance().getGameState() == GameState.PLAY) {
             checkInput();
         }
-
-        string curText = "";
-
-        
-
-        /*for (int i = 0; i < Input.touchCount; i++) {
-
-            Touch touch = Input.GetTouch(i);
-
-            curText += "Touch " + i.ToString()+" finger:"+touch.fingerId + " pos:" + touch.position + " dir:" + touch.deltaPosition + "/n";    
-        }
-
-        text.text = curText;*/
     }
 }

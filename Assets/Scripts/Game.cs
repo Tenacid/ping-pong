@@ -135,9 +135,7 @@ public class Game : MonoBehaviour {
         resetBall();
 
         state = GameState.PLAY;
-
-        //ControlManager.getInstance().resetPrevTouchPos();
-
+        
         ballInstance.addForce();
     }
 
@@ -181,7 +179,7 @@ public class Game : MonoBehaviour {
     public void pauseGame() {
         prevState = state;
         state = GameState.PAUSE;
-
+        
         ballInstance.pause();
     }
 
@@ -193,8 +191,6 @@ public class Game : MonoBehaviour {
 
     public void unpause() {
         state = prevState;
-
-        //ControlManager.getInstance().resetPrevTouchPos();
 
         ballInstance.unpause();
     }

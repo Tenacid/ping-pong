@@ -19,8 +19,6 @@ public class Platform : MonoBehaviour
         returnToBase();
     }
 
-
-    // Start is called before the first frame update
     public void returnToBase()
     {
         Rect rect = Game.getInstance().getGameRect();
