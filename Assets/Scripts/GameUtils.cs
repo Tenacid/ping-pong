@@ -24,6 +24,10 @@ public class GameUtils
     public static void saveBestScore(int score) {
 
 #if UNITY_EDITOR
+        if (!System.IO.Directory.Exists(Application.streamingAssetsPath)) {
+            System.IO.Directory.CreateDirectory(Application.streamingAssetsPath);
+        }
+
         string path = System.IO.Path.Combine(Application.streamingAssetsPath, "score");
 #else
         string path = System.IO.Path.Combine(Application.persistentDataPath, "score");
@@ -54,6 +58,10 @@ public class GameUtils
 
     public static void saveConfig(Config config) {
 #if UNITY_EDITOR
+        if (!System.IO.Directory.Exists(Application.streamingAssetsPath)) {
+            System.IO.Directory.CreateDirectory(Application.streamingAssetsPath);
+        }
+
         string path = System.IO.Path.Combine(Application.streamingAssetsPath, "config");
 #else
         string path = System.IO.Path.Combine(Application.persistentDataPath, "config");
